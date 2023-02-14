@@ -16,6 +16,8 @@ module.exports = {
   'plugins': [
     'react',
   ],
-  'rules': {
+  'rules':
+  {
+    'require-jsdoc': 'Off',
   },
 };
