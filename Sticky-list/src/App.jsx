@@ -1,7 +1,7 @@
 import './App.css';
 import React, {Fragment} from 'react';
-import Inicio from './Componentes/inicio';
-import Fondo from './Componentes/Fondo';
+import Inicio from './Componentes/Login';
+import Fondo from './Componentes/Home';
 
 function App() {
   /* const [count, setCount] = useState(0); */

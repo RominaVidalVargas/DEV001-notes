@@ -1,4 +1,5 @@
 import React from 'react';
+
 function Inicio() {
   const validarClick = () => {
     console.log('Me hiciste click');
