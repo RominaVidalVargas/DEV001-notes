@@ -1,6 +1,7 @@
-import {Fragment, useState} from 'react';
+import { Fragment, useState } from 'react';
 import './App.css';
 import React from 'react';
+import BotonInicio from './Componentes/Boton-inicio'
 
 function App() {
   const [count, setCount] = useState(0);
@@ -12,7 +13,7 @@ function App() {
       <h2>Bienvenid@!</h2>
       <p>¿Qué historias increíbles has visto últimamente?</p>
       <button type="button">Iniciar sesión con Google</button>
-
+      <BotonInicio/>
     </Fragment>
 
   );
