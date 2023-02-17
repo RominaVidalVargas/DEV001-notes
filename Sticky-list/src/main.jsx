@@ -9,11 +9,11 @@ import Muro from './Componentes/Muro';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Inicio/>,
   },
   {
-    path: "/muro",
+    path: '/muro',
     element: <Muro/>,
   },
 ]);
