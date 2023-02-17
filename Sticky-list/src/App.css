@@ -19,6 +19,37 @@ p {
     color: white;
 }
 
-button {
-    color: rgba(21, 177, 183, 1)
+#button {
+    background-color: rgba(6, 188, 194, 1);
+}
+
+#lateral {
+    background-color: rgba(6, 188, 194, 1);
+    height: auto;
+    width: 200px;
+    flex-direction: column;
+    padding: 10px;
+    font-size: 25px;
+}
+
+#nuevoSticky {
+    background-color: rgba(34, 46, 94, 1);
+    Width: 90px;
+    Height: 70px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+#cerrarSesion {
+    background-color: rgba(34, 46, 94, 1);
+    Width: 90px;
+    Height: 60px;
+    border-radius: 20px;
+    margin: 10px;
+    font-size: 15px;
+}
+
+#filtro {
+    background-color: rgba(34, 46, 94, 1);
+    color: #ffff;
 }

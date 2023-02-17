@@ -1,15 +1,15 @@
+import {Fragment} from 'react';
 import './App.css';
-import React, {Fragment} from 'react';
-import Inicio from './Componentes/inicio';
-import Fondo from './Componentes/Fondo';
+import React from 'react';
+import Muro from './Componentes/Muro';
+import Inicio from './Componentes/Inicio';
 
 function App() {
-  /* const [count, setCount] = useState(0); */
-
   return (
-    <Fragment>
+    <Fragment id="contenedor">
+
       <Inicio/>
-      <Fondo/>
+      <Muro/>
     </Fragment>
 
   );
