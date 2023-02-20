@@ -1,19 +1,28 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
+import { salirDeCuenta } from '../../Firebase/Dependencias';
 
 function Muro() {
+  const navigate = useNavigate();
+
   const validarClick = () => {
   };
   console.log('Click Publicar');
 
-  const filtro = () =>{
+  const filtro = () => {
     console.log('click filtro');
   };
-  const nuevoSticky = () =>{
+  const nuevoSticky = () => {
     console.log('click nuevoSticky');
   };
-  const cerrar = () =>{
-    console.log('click cerrar');
+
+  const cerrar = () => {
+    
+    salirDeCuenta().then(resolve => {
+      navigate('/')
+    });
   };
+  
   return (
     <div>
       <header>
@@ -29,9 +38,6 @@ function Muro() {
         <button onClick={cerrar} type="button"
           id="cerrarSesion">Cerrar Sesion</button>
       </nav>
-      <main><button onClick={validarClick} type="button"
-        id="botonPublicar">Publicar</button>
-      </main>
     </div>
   );
 };

@@ -1,10 +1,7 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 
 
-initializeApp({
-    credential: _credential.cert(serviceAccount)
-});
 
 const firebaseConfig = {
     apiKey: "AIzaSyASlgSQpq4GZs0y46rz7nrncV_CE0wiMro",
@@ -22,4 +19,8 @@ const provider = new GoogleAuthProvider();
 
 export const registroGoogle = () => {
     return signInWithPopup(auth, provider);
+}
+
+export const salirDeCuenta = async() => {
+    await signOut(auth);
 }
