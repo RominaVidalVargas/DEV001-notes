@@ -5,9 +5,20 @@
     background-color: rgba(34, 46, 94, 1);
 }
 
+#cabeza {
+    display: flex;
+    justify-content: first baseline;
+}
+
 h1 {
     color: rgba(6, 188, 194, 1);
-    font-size: 5.2em
+    font-size: 5.2em;
+    margin: 10px;
+}
+
+#titulo {
+    font-size: 60px;
+    padding: 0 0px 0 85px;
 }
 
 h2 {
@@ -16,6 +27,12 @@ h2 {
 
 p {
     color: white;
+}
+
+#userName {
+    color: white;
+    font-size: x-large;
+    align-content: flex-end;
 }
 
 #button {
@@ -27,7 +44,7 @@ p {
 #lateral {
     background-color: rgba(6, 188, 194, 1);
     height: auto;
-    width: 200px;
+    width: 170px;
     flex-direction: column;
     font-size: 25px;
 }
@@ -37,7 +54,8 @@ p {
     Width: 90px;
     Height: 70px;
     border-radius: 20px;
-    padding: 10px;
+    padding: 6px;
+    margin: 10px;
 }
 
 #cerrarSesion {
@@ -53,6 +71,7 @@ p {
     background-color: rgba(34, 46, 94, 1);
     color: #ffff;
 }
-header{
-    padding: 55px;
+
+header {
+    padding: 15px;
 }

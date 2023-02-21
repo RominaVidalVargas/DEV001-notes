@@ -21,10 +21,10 @@ function Fondo() {
       </header>
       <nav id="lateral">
         <div>
-          <div onClick={filtro}  id="button">Películas</div>
-          <div onClick={filtro}  id="button">Series</div>
-          <div onClick={filtro}  id="button">Animé</div>
-          <div onClick={filtro}  id="button">Ver Todo</div>
+          <div onClick={filtro} id="button">Películas</div>
+          <div onClick={filtro} id="button">Series</div>
+          <div onClick={filtro} id="button">Animé</div>
+          <div onClick={filtro} id="button">Ver Todo</div>
         </div>
         <input type="image" src="imagenes\nota.png" id="nuevoSticky"
           onClick={nuevoSticky}></input>
