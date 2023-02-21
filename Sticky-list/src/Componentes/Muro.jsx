@@ -1,19 +1,17 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { salirDeCuenta } from '../../Firebase/Dependencias';
+import {useNavigate} from 'react-router-dom';
+import {salirDeCuenta} from '../../Firebase/Dependencias';
 
 function Muro() {
   const navigate = useNavigate();
 
-  const validarClick = () => {
+  function nuevoSticky() {
+    document.getElementById('contenedorSticky').style.display='block';
+    nuevoSticky();
   };
-  console.log('Click Publicar');
 
   const filtro = () => {
     console.log('click filtro');
-  };
-  const nuevoSticky = () => {
-    console.log('click nuevoSticky');
   };
 
   const cerrar = () => {
@@ -43,8 +41,15 @@ function Muro() {
         </aside>
         <div id='contenedorSticky'>
           <div id='sticky'>
-            <input type="text" id='titulosticky' placeholder='Título de tu sticky' />
+            <input type="text" id='titulosticky'
+              placeholder='Título de tu sticky' />
             <textarea id='inputsticky' placeholder='¿Qué quieres recordar?' />
+            {/* <select id="opciones">
+              <option selected="true" disabled="disabled">Que Viste</option>
+              <option value="filtro">Peliculas</option>
+              <option value="filtro">Series</option>
+              <option value="filtro">Anime</option>
+            </select> */}
             <button id='publicarpost'>Publicar</button>
           </div>
         </div>
