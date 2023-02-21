@@ -5,6 +5,17 @@
     background-color: rgba(34, 46, 94, 1);
 }
 
+#contenedorSticky {
+    display: flex;
+    align-content: center;
+}
+
+main {
+    display: flex;
+    justify-content: flex-start;
+    background-color: rgba(211, 211, 211, 1)
+}
+
 #cabeza {
     display: flex;
     justify-content: first baseline;
@@ -39,6 +50,7 @@ p {
     background-color: rgba(6, 188, 194, 1);
     border-bottom: 1px solid rgb(255, 255, 255);
     width: 100%;
+    color: white;
 }
 
 #lateral {
@@ -49,21 +61,28 @@ p {
     font-size: 25px;
 }
 
+#cerrarSesion,
+#publicarpost,
 #nuevoSticky {
     background-color: rgba(34, 46, 94, 1);
-    Width: 90px;
-    Height: 70px;
+    Width: auto;
+    Height: auto;
     border-radius: 20px;
-    padding: 6px;
     margin: 10px;
+    font-size: 15px;
+    color: white;
 }
 
-#cerrarSesion {
-    background-color: rgba(34, 46, 94, 1);
-    Width: 90px;
-    Height: 60px;
-    border-radius: 20px;
-    margin: 10px;
+#inputsticky {
+    width: 160px;
+    height: 100px;
+    background-color: rgba(6, 188, 194, 1);
+    border: none;
+}
+
+::placeholder {
+    color: white;
+    font-weight: bolder;
     font-size: 15px;
 }
 
@@ -74,4 +93,18 @@ p {
 
 header {
     padding: 15px;
+}
+
+#sticky {
+    background-color: rgba(6, 188, 194, 1);
+    width: 200px;
+    height: 200px;
+    margin: 30px;
+    padding-top: 15px;
+}
+
+#titulosticky {
+    width: 160px;
+    background-color: rgba(6, 188, 194, 1);
+    border: none;
 }

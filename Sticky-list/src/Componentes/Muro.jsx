@@ -1,6 +1,6 @@
 import React from 'react';
-import {useNavigate} from 'react-router-dom';
-import {salirDeCuenta} from '../../Firebase/Dependencias';
+import { useNavigate } from 'react-router-dom';
+import { salirDeCuenta } from '../../Firebase/Dependencias';
 
 function Muro() {
   const navigate = useNavigate();
@@ -31,18 +31,24 @@ function Muro() {
         </div>
       </header>
       <main>
-        <nav id="lateral">
+        <aside id="lateral">
           <button onClick={filtro} type="button" id="button">Películas</button>
           <button onClick={filtro} type="button" id="button">Series</button>
           <button onClick={filtro} type="button" id="button">Animé</button>
           <button onClick={filtro} type="button" id="button">Ver Todo</button>
-          <input type="image" src="imagenes\nota.png" id="nuevoSticky"
-            onClick={nuevoSticky}></input>
+          <button type='button' id="nuevoSticky"
+            onClick={nuevoSticky}>Nuevo Sticky</button>
           <button onClick={cerrar} type="button"
             id="cerrarSesion">Cerrar Sesion</button>
-        </nav>
-        <div>
+        </aside>
+        <div id='contenedorSticky'>
+          <div id='sticky'>
+            <input type="text" id='titulosticky' placeholder='Título de tu sticky' />
+            <textarea id='inputsticky' placeholder='¿Qué quieres recordar?' />
+            <button id='publicarpost'>Publicar</button>
+          </div>
         </div>
+
       </main>
     </div>
   );
