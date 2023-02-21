@@ -34,10 +34,8 @@ function Muro() {
           <button onClick={filtro} type="button" id="button">Series</button>
           <button onClick={filtro} type="button" id="button">Animé</button>
           <button onClick={filtro} type="button" id="button">Ver Todo</button>
-          <button type='button' id="nuevoSticky"
-            onClick={nuevoSticky}>Nuevo Sticky</button>
-          <button onClick={cerrar} type="button"
-            id="cerrarSesion">Cerrar Sesion</button>
+          <button type='button' id="nuevoSticky" onClick={nuevoSticky}>Nuevo Sticky</button>
+          <button onClick={cerrar} type="button" id="cerrarSesion">Cerrar Sesion</button>
         </aside>
         <div id='contenedorSticky'>
           <div id='sticky'>
