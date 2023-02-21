@@ -8,6 +8,7 @@
 #contenedorSticky {
     display: flex;
     align-content: center;
+    display: none;
 }
 
 main {
@@ -18,7 +19,7 @@ main {
 
 #cabeza {
     display: flex;
-    justify-content: first baseline;
+    justify-content: baseline;
 }
 
 h1 {
@@ -63,21 +64,22 @@ p {
 
 #cerrarSesion,
 #publicarpost,
-#nuevoSticky {
+#nuevoSticky, #opciones{
     background-color: rgba(34, 46, 94, 1);
     Width: auto;
     Height: auto;
     border-radius: 20px;
-    margin: 10px;
+    margin: 12px;
     font-size: 15px;
     color: white;
 }
 
 #inputsticky {
-    width: 160px;
+    width: 190px;
     height: 100px;
     background-color: rgba(6, 188, 194, 1);
     border: none;
+    text-transform:capitalize;
 }
 
 ::placeholder {
@@ -97,14 +99,16 @@ header {
 
 #sticky {
     background-color: rgba(6, 188, 194, 1);
-    width: 200px;
+    width: 250px;
     height: 200px;
     margin: 30px;
-    padding-top: 15px;
+    padding-top: 10px;
 }
 
 #titulosticky {
-    width: 160px;
+    width: 170px;
     background-color: rgba(6, 188, 194, 1);
     border: none;
+    text-align: center;
+    text-transform:capitalize;
 }
