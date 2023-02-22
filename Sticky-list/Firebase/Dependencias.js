@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut }
-    from 'firebase/auth';
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
+import { getFirestore, doc, setDoc, collection } from "firebase/firestore";
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyASlgSQpq4GZs0y46rz7nrncV_CE0wiMro",
@@ -15,11 +16,17 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
+const db = getFirestore(app);
+
 
 export const registroGoogle = () => {
     return signInWithPopup(auth, provider);
 }
 
-export const salirDeCuenta = async () => {
+export const salirDeCuenta = async() => {
     await signOut(auth);
+};
+
+export const lectorDatos = () => {
+    return doc(collection(db, 'sticky'))
 };

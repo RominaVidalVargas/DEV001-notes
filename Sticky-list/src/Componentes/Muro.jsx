@@ -5,10 +5,11 @@ import {salirDeCuenta} from '../../Firebase/Dependencias';
 function Muro() {
   const navigate = useNavigate();
 
-  function nuevoSticky() {
+
+  const nuevoSticky = () =>{
     document.getElementById('contenedorSticky').style.display='block';
-    nuevoSticky();
-  };
+  }
+  
 
   const filtro = () => {
     console.log('click filtro');
