@@ -32,7 +32,7 @@ function Fondo() {
           id="cerrarSesion">Cerrar Sesion</button>
       </nav>
       <main><button onClick={validarClick} type="button"
-        id="botonPublicar">Publicar</button>
+        id="botonGoogle">Publicar</button>
       </main>
     </div>
   );

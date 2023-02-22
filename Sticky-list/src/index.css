@@ -42,12 +42,12 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: rgba(34, 46, 94, 1);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color:  rgba(6, 188, 194, 1);
 }
 button:focus,
 button:focus-visible {
