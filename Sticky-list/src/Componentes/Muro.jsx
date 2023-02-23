@@ -1,15 +1,31 @@
-import React from 'react';
-import {useNavigate} from 'react-router-dom';
-import {salirDeCuenta} from '../../Firebase/Dependencias';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { salirDeCuenta } from '../../Firebase/Dependencias';
 
 function Muro() {
   const navigate = useNavigate();
 
+  const inputInicial = {
+    titulo: '',
+    publicacion: ''
+  };
 
-  const nuevoSticky = () =>{
-    document.getElementById('contenedorSticky').style.display='block';
-  }
-  
+  const [valorPublicacion, setvalorPublicacion] = useState(inputInicial);
+
+  const controladorInput = (e) => {
+    const { name, value } = e.target;
+   setvalorPublicacion({...valorPublicacion, [name]:value});
+  };
+
+  const nuevoSticky = () => {
+    document.getElementById('contenedorSticky').style.display = 'block';
+  };
+
+  const controladorClick = (e) => {
+    e.preventDefault()
+    console.log(valorPublicacion)
+  };
+
 
   const filtro = () => {
     console.log('click filtro');
@@ -40,16 +56,16 @@ function Muro() {
         </aside>
         <div id='contenedorSticky'>
           <div id='sticky'>
-            <input type="text" id='titulosticky'
+            <input name='titulo' type="text" id='titulosticky' onChange={controladorInput}
               placeholder='Título de tu sticky' />
-            <textarea id='inputsticky' placeholder='¿Qué quieres recordar?' />
+            <textarea name='publicacion' id='inputsticky' placeholder='¿Qué quieres recordar?' onChange={controladorInput} />
             {/* <select id="opciones">
               <option selected="true" disabled="disabled">Que Viste</option>
               <option value="filtro">Peliculas</option>
               <option value="filtro">Series</option>
               <option value="filtro">Anime</option>
             </select> */}
-            <button id='publicarpost'>Publicar</button>
+            <button onClick={controladorClick} id='publicarpost'>Publicar</button>
           </div>
         </div>
 
