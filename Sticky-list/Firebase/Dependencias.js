@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
-import { getFirestore, doc, setDoc, collection, onSnapshot } from "firebase/firestore";
+import { getFirestore, doc, setDoc, collection, onSnapshot, addDoc } from "firebase/firestore";
 
 
 const firebaseConfig = {
@@ -29,6 +29,11 @@ export const salirDeCuenta = async() => {
 
 export const lectorDatos = () => {
     return doc(collection(db, 'sticky'))
+};
+
+
+export const crearDocumento = (objetoInput) => {
+    return addDoc(collection(db, "stickypost"), objetoInput)
 };
 
 

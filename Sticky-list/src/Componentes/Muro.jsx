@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { salirDeCuenta } from '../../Firebase/Dependencias';
+import { salirDeCuenta, crearDocumento } from '../../Firebase/Dependencias';
 
 function Muro() {
   const navigate = useNavigate();
@@ -21,8 +21,12 @@ function Muro() {
     document.getElementById('contenedorSticky').style.display = 'block';
   };
 
-  const controladorClick = (e) => {
-    e.preventDefault()
+  const clickInputPublicacion = (e) => {
+    e.preventDefault();
+    crearDocumento(valorPublicacion)
+    // .then((funciona)=>{
+    //   console.log(funciona)
+    // })
     console.log(valorPublicacion)
   };
 
@@ -65,7 +69,7 @@ function Muro() {
               <option value="filtro">Series</option>
               <option value="filtro">Anime</option>
             </select> */}
-            <button onClick={controladorClick} id='publicarpost'>Publicar</button>
+            <button onClick={clickInputPublicacion} id='publicarpost'>Publicar</button>
           </div>
         </div>
 
