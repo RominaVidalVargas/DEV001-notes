@@ -18,7 +18,7 @@ main {
 #cabeza {
     display: flex;
     justify-content: space-between;
-    margin: 20px;
+    margin: 30px;
 }
 
 
@@ -57,7 +57,7 @@ h2 {
 
 #lateral {
     background-color: rgba(6, 188, 194, 1);
-    height: 600px;
+    height: 700px;
     width: 200px;
     flex-direction: column;
     font-size: 25px;
@@ -68,22 +68,22 @@ h2 {
 #nuevoSticky,
 #opciones {
     background-color: rgba(34, 46, 94, 1);
-    Width: auto;
-    Height: auto;
+    Width: 200px;
+    Height: 50px;
     border-radius: 20px;
     margin: 12px;
-    font-size: 15px;
+    font-size: 18px;
     color: white;
 }
 
 #nuevoSticky {
-    margin-top: 40.5px;
-    margin-bottom: 41px;
+    margin-top: 30px;
+    margin-bottom: 15px;
 
 }
 
 #cerrarSesion {
-    margin-bottom: 40.5px;
+    margin-top: 30px;
 }
 
 
@@ -104,6 +104,7 @@ h2 {
 }
 
 #filtro {
+    height: 670px;
     background-color: rgba(34, 46, 94, 1);
     color: #ffff;
 }
@@ -146,7 +147,7 @@ header {
 
     #userName {
         color: white;
-        font-size: 20px;
+        font-size: 30px;
         align-content: flex-end;
     }
 
@@ -158,8 +159,8 @@ header {
 
     #lateral {
         background-color: rgba(6, 188, 194, 1);
-        height: auto;
-        width: 200px;
+        height: 455px;
+        width: 300px;
         flex-direction: column;
         font-size: 25px;
     }
