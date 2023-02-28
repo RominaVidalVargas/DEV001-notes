@@ -1,7 +1,14 @@
 import React from "react";
+import { registroGoogle } from "../../Firebase/Dependencias";
+import { useNavigate } from "react-router-dom";
+
 function Inicio() {
+    const navigate = useNavigate();
     const validarClick = () => {
-        console.log('Me hiciste click')
+    registroGoogle().then((resolve)=>{
+        navigate ('/muro')
+    })
+
     }
     return (
         <div>
@@ -9,7 +16,7 @@ function Inicio() {
       <img src="/imagenes/logo.png"></img>
       <h2>Bienvenid@!</h2>
       <p>¿Qué historias increíbles has visto últimamente?</p>
-      <button onClick={validarClick} type="button">
+      <button className="login" onClick={validarClick} type="button">
         Iniciar sesión con Google</button>
     </div>
     );
