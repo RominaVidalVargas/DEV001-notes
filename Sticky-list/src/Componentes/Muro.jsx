@@ -24,9 +24,9 @@ function Muro() {
   const clickInputPublicacion = (e) => {
     e.preventDefault();
     crearDocumento(valorPublicacion)
-    // .then((funciona)=>{
-    //   console.log(funciona)
-    // })
+     .then((funciona)=>{
+       console.log(funciona)
+     })
     console.log(valorPublicacion)
   };
 
