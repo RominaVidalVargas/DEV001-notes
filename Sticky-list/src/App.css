@@ -1,6 +1,7 @@
 #root {
-        text-align: center;
+    text-align: center;
     background-color: rgba(34, 46, 94, 1);
+    height: 100vh;
 }
 
 #contenedorSticky {
@@ -12,7 +13,9 @@
 main {
     display: flex;
     justify-content: flex-start;
-    background-color: rgba(211, 211, 211, 1)
+    background-color: rgba(211, 211, 211, 1);
+    height: 100vh;
+    width: 100vh;
 }
 
 #cabeza {
@@ -21,10 +24,8 @@ main {
     margin: 30px;
 }
 
-
 #logoSticky {
     width: 70%;
-
 }
 
 #tituloInicio {
@@ -44,7 +45,7 @@ h2 {
 
 #userName {
     color: white;
-    font-size: 8    0px;
+    font-size: 8 0px;
     align-content: flex-end;
 }
 
@@ -79,22 +80,19 @@ h2 {
 #nuevoSticky {
     margin-top: 30px;
     margin-bottom: 15px;
-
 }
 
 #cerrarSesion {
     margin-top: 30px;
 }
 
-
-
 #inputsticky {
     width: 190px;
     height: 100px;
     background-color: rgba(6, 188, 194, 1);
     border: none;
-    text-transform: capitalize;
     padding: 10px;
+    color: white;
 }
 
 ::placeholder {
@@ -126,42 +124,6 @@ header {
     background-color: rgba(6, 188, 194, 1);
     border: none;
     text-align: center;
-    text-transform: capitalize;
     padding: 15px;
-}
-
-@media (min-width:1024px) {
-    #logoSticky {
-        width: 48%;
-    }
-
-    #cabeza {
-        display: flex;
-        justify-content: space-between;
-        margin: 0 20px 0 20px;
-    }
-
-    #titulo {
-        font-size: 50px;
-    }
-
-    #userName {
-        color: white;
-        font-size: 30px;
-        align-content: flex-end;
-    }
-
-    #titulo {
-        padding: 0 0px 0 85px;
-        color: rgba(6, 188, 194, 1);
-        margin: 10px;
-    }
-
-    #lateral {
-        background-color: rgba(6, 188, 194, 1);
-        height: 455px;
-        width: 300px;
-        flex-direction: column;
-        font-size: 25px;
-    }
+    color: white;
 }
