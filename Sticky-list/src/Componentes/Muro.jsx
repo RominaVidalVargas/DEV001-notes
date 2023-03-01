@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { salirDeCuenta, crearDocumento } from '../../Firebase/Dependencias';
+import React, {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+import {salirDeCuenta, crearDocumento} from '../../Firebase/Dependencias';
 
 function Muro() {
   const navigate = useNavigate();
 
   const inputInicial = {
     titulo: '',
-    publicacion: ''
+    publicacion: '',
   };
 
   const [valorPublicacion, setvalorPublicacion] = useState(inputInicial);
 
   const controladorInput = (e) => {
-    const { name, value } = e.target;
-   setvalorPublicacion({...valorPublicacion, [name]:value});
+    const {name, value} = e.target;
+    setvalorPublicacion({...valorPublicacion, [name]: value});
   };
 
   const nuevoSticky = () => {
@@ -24,10 +24,10 @@ function Muro() {
   const clickInputPublicacion = (e) => {
     e.preventDefault();
     crearDocumento(valorPublicacion)
-     .then((funciona)=>{
-       console.log(funciona)
-     })
-    console.log(valorPublicacion)
+        .then((funciona)=>{
+          console.log(funciona);
+        });
+    console.log(valorPublicacion);
   };
 
 
@@ -51,12 +51,10 @@ function Muro() {
       </header>
       <main>
         <aside id="lateral">
-          <button onClick={filtro} type="button"
-            id="button">Películas</button>
+          <button onClick={filtro} type="button" id="button">Películas</button>
           <button onClick={filtro} type="button" id="button">Series</button>
           <button onClick={filtro} type="button" id="button">Animé</button>
-          <button onClick={filtro} type="button"
-            id="button">Ver Todo</button>
+          <button onClick={filtro} type="button" id="button">Ver Todo</button>
           <button type='button' id="nuevoSticky"
             onClick={nuevoSticky}>Nuevo Sticky</button>
           <button onClick={cerrar} type="button"
@@ -64,14 +62,14 @@ function Muro() {
         </aside>
         <div id='contenedorSticky'>
           <div id='sticky'>
-            <input 
-            name='titulo' 
-            type="text" 
-            id='titulosticky'
-            onChange={controladorInput}
-            placeholder='Título de tu sticky' />
-            <textarea id='inputsticky' placeholder='¿Qué quieres recordar?' />
-            <button id='publicarpost'>Publicar</button>
+            <input name='titulo' type="text" id='titulosticky'
+              onChange={controladorInput}
+              placeholder='Título de tu sticky' />
+            <textarea name='publicacion' id='inputsticky'
+              placeholder='¿Qué quieres recordar?'
+              onChange={controladorInput} />
+            <button onClick={clickInputPublicacion}
+              id='publicarpost'>Publicar</button>
           </div>
         </div>
 
