@@ -1,11 +1,5 @@
-.login {
-    margin-bottom: 20px;
-}
-
 #root {
-    /* max-width: 1280px; */
-    margin: 0 auto;
-    text-align: center;
+        text-align: center;
     background-color: rgba(34, 46, 94, 1);
 }
 
@@ -23,31 +17,34 @@ main {
 
 #cabeza {
     display: flex;
-    justify-content: baseline;
+    justify-content: space-between;
+    margin: 30px;
 }
 
-h1 {
-    color: rgba(6, 188, 194, 1);
-    font-size: 5.2em;
-    margin: 10px;
+
+#logoSticky {
+    width: 70%;
+
+}
+
+#tituloInicio {
+    font-size: 60px;
 }
 
 #titulo {
-    font-size: 60px;
     padding: 0 0px 0 85px;
+    color: rgba(6, 188, 194, 1);
+    margin: 30px;
+    font-size: 200px;
 }
 
 h2 {
     color: white;
 }
 
-p {
-    color: white;
-}
-
 #userName {
     color: white;
-    font-size: x-large;
+    font-size: 8    0px;
     align-content: flex-end;
 }
 
@@ -60,8 +57,8 @@ p {
 
 #lateral {
     background-color: rgba(6, 188, 194, 1);
-    height: auto;
-    width: 170px;
+    height: 700px;
+    width: 200px;
     flex-direction: column;
     font-size: 25px;
 }
@@ -71,13 +68,25 @@ p {
 #nuevoSticky,
 #opciones {
     background-color: rgba(34, 46, 94, 1);
-    Width: auto;
-    Height: auto;
+    Width: 200px;
+    Height: 50px;
     border-radius: 20px;
     margin: 12px;
-    font-size: 15px;
+    font-size: 18px;
     color: white;
 }
+
+#nuevoSticky {
+    margin-top: 30px;
+    margin-bottom: 15px;
+
+}
+
+#cerrarSesion {
+    margin-top: 30px;
+}
+
+
 
 #inputsticky {
     width: 190px;
@@ -95,6 +104,7 @@ p {
 }
 
 #filtro {
+    height: 670px;
     background-color: rgba(34, 46, 94, 1);
     color: #ffff;
 }
@@ -118,4 +128,40 @@ header {
     text-align: center;
     text-transform: capitalize;
     padding: 15px;
+}
+
+@media (min-width:1024px) {
+    #logoSticky {
+        width: 48%;
+    }
+
+    #cabeza {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 20px 0 20px;
+    }
+
+    #titulo {
+        font-size: 50px;
+    }
+
+    #userName {
+        color: white;
+        font-size: 30px;
+        align-content: flex-end;
+    }
+
+    #titulo {
+        padding: 0 0px 0 85px;
+        color: rgba(6, 188, 194, 1);
+        margin: 10px;
+    }
+
+    #lateral {
+        background-color: rgba(6, 188, 194, 1);
+        height: 455px;
+        width: 300px;
+        flex-direction: column;
+        font-size: 25px;
+    }
 }
