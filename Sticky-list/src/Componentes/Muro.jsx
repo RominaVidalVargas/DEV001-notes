@@ -30,10 +30,12 @@ function Muro() {
       </header>
       <main>
         <aside id="lateral">
-          <button onClick={filtro} type="button" id="button">Películas</button>
+          <button onClick={filtro} type="button"
+            id="button">Películas</button>
           <button onClick={filtro} type="button" id="button">Series</button>
           <button onClick={filtro} type="button" id="button">Animé</button>
-          <button onClick={filtro} type="button" id="button">Ver Todo</button>
+          <button onClick={filtro} type="button"
+            id="button">Ver Todo</button>
           <button type='button' id="nuevoSticky"
             onClick={nuevoSticky}>Nuevo Sticky</button>
           <button onClick={cerrar} type="button"
@@ -44,12 +46,6 @@ function Muro() {
             <input type="text" id='titulosticky'
               placeholder='Título de tu sticky' />
             <textarea id='inputsticky' placeholder='¿Qué quieres recordar?' />
-            {/* <select id="opciones">
-              <option selected="true" disabled="disabled">Que Viste</option>
-              <option value="filtro">Peliculas</option>
-              <option value="filtro">Series</option>
-              <option value="filtro">Anime</option>
-            </select> */}
             <button id='publicarpost'>Publicar</button>
           </div>
         </div>
