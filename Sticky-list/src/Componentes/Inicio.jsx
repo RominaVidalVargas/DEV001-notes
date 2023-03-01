@@ -11,12 +11,11 @@ function Inicio() {
   };
   return (
     <div>
-      <h1 id="tituloInicio">Sticky List</h1>
-      <img id="logoSticky" src="/imagenes/logo.png"></img>
+      <h1>Sticky List</h1>
+      <img src="/imagenes/logo.png"></img>
       <h2>Bienvenid@!</h2>
       <p>¿Qué historias increíbles has visto últimamente?</p>
-      <button className="login" onClick={validarClick}
-        id="btnLogin" type="button">
+      <button className="login" onClick={validarClick} type="button">
         Iniciar sesión con Google</button>
     </div>
   );

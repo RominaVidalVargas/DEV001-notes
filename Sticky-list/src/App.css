@@ -1,6 +1,7 @@
 #root {
     text-align: center;
     background-color: rgba(34, 46, 94, 1);
+    height: 100vh;
 }
 
 #contenedorSticky {
@@ -108,14 +109,11 @@ h2 {
 #nuevoSticky {
     margin-top: 30px;
     margin-bottom: 15px;
-
 }
 
 #cerrarSesion {
     margin-top: 30px;
 }
-
-
 
 #inputsticky {
     width: 190px;

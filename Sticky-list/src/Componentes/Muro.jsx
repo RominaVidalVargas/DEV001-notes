@@ -1,14 +1,35 @@
-import React from 'react';
-import {useNavigate} from 'react-router-dom';
-import {salirDeCuenta} from '../../Firebase/Dependencias';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { salirDeCuenta, crearDocumento } from '../../Firebase/Dependencias';
 
 function Muro() {
   const navigate = useNavigate();
 
-
-  const nuevoSticky = () =>{
-    document.getElementById('contenedorSticky').style.display='block';
+  const inputInicial = {
+    titulo: '',
+    publicacion: ''
   };
+
+  const [valorPublicacion, setvalorPublicacion] = useState(inputInicial);
+
+  const controladorInput = (e) => {
+    const { name, value } = e.target;
+   setvalorPublicacion({...valorPublicacion, [name]:value});
+  };
+
+  const nuevoSticky = () => {
+    document.getElementById('contenedorSticky').style.display = 'block';
+  };
+
+  const clickInputPublicacion = (e) => {
+    e.preventDefault();
+    crearDocumento(valorPublicacion)
+     .then((funciona)=>{
+       console.log(funciona)
+     })
+    console.log(valorPublicacion)
+  };
+
 
   const filtro = () => {
     console.log('click filtro');
@@ -43,8 +64,12 @@ function Muro() {
         </aside>
         <div id='contenedorSticky'>
           <div id='sticky'>
-            <input type="text" id='titulosticky'
-              placeholder='Título de tu sticky' />
+            <input 
+            name='titulo' 
+            type="text" 
+            id='titulosticky'
+            onChange={controladorInput}
+            placeholder='Título de tu sticky' />
             <textarea id='inputsticky' placeholder='¿Qué quieres recordar?' />
             <button id='publicarpost'>Publicar</button>
           </div>
