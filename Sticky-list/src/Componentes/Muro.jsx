@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import {salirDeCuenta, crearDocumento} from '../../Firebase/Dependencias';
+import {salirDeCuenta, crearDocumento, lectorDatos}
+  from '../../Firebase/Dependencias';
 
 function Muro() {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ function Muro() {
   };
 
   const [valorPublicacion, setvalorPublicacion] = useState(inputInicial);
-
+  const [notas, setNotas]= useState([]);
   const controladorInput = (e) => {
     const {name, value} = e.target;
     setvalorPublicacion({...valorPublicacion, [name]: value});
@@ -23,13 +24,22 @@ function Muro() {
 
   const clickInputPublicacion = (e) => {
     e.preventDefault();
+    /* limpiar input */
+    setvalorPublicacion({...inputInicial});
     crearDocumento(valorPublicacion)
         .then((funciona)=>{
           console.log(funciona);
         });
     console.log(valorPublicacion);
   };
-
+  /* fx para renderizar los nuevos stickys */
+  useEffect(()=>{
+    lectorDatos().then((result)=>{
+      console.log(result);
+      setNotas(result);
+    },
+    );
+  }, []);
 
   const filtro = () => {
     console.log('click filtro');
@@ -71,8 +81,24 @@ function Muro() {
             <button onClick={clickInputPublicacion}
               id='publicarpost'>Publicar</button>
           </div>
-        </div>
 
+        </div>
+        <div id="contenedorNotas">
+          <div id="cuerpoNotas">
+            {notas.map((nota) =>(
+              <div key={nota.id}>
+                <div id="datosNota">
+                  <p id="tituloNota">{nota.titulo}</p>
+                  <p id="textoNota">{nota.publicacion}</p>
+                  <button id="borrar-editar">Borrar</button>
+                  <button id="borrar-editar">Editar</button>
+                </div>
+
+              </div>
+            ))
+            }
+          </div>
+        </div>
       </main>
     </div>
   );
