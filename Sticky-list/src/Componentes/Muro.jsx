@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import {useNavigate} from 'react-router-dom';
-import {salirDeCuenta, crearDocumento, lectorDatos}
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { salirDeCuenta, crearDocumento, lectorDatos, borrarPublicación, docSnap }
   from '../../Firebase/Dependencias';
 
 function Muro() {
@@ -12,10 +12,12 @@ function Muro() {
   };
 
   const [valorPublicacion, setvalorPublicacion] = useState(inputInicial);
-  const [notas, setNotas]= useState([]);
+  const [notas, setNotas] = useState([]);
+  const [subId, setsubId] = useState('');
+
   const controladorInput = (e) => {
-    const {name, value} = e.target;
-    setvalorPublicacion({...valorPublicacion, [name]: value});
+    const { name, value } = e.target;
+    setvalorPublicacion({ ...valorPublicacion, [name]: value });
   };
 
   const nuevoSticky = () => {
@@ -25,21 +27,40 @@ function Muro() {
   const clickInputPublicacion = (e) => {
     e.preventDefault();
     /* limpiar input */
-    setvalorPublicacion({...inputInicial});
+    document.getElementById('contenedorSticky').style.display = 'none';
+
+    setvalorPublicacion({ ...inputInicial });
     crearDocumento(valorPublicacion)
-        .then((funciona)=>{
-          console.log(funciona);
-        });
+      .then((funciona) => {
+        console.log(funciona);
+      });
     console.log(valorPublicacion);
   };
   /* fx para renderizar los nuevos stickys */
-  useEffect(()=>{
-    lectorDatos().then((result)=>{
+  useEffect(() => {
+    lectorDatos().then((result) => {
       console.log(result);
       setNotas(result);
     },
     );
   }, []);
+
+
+  const obtenerUnDocumento = async (id) => {
+    try {
+      setvalorPublicacion(docSnap.data())
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  //fx para editar documentos
+  useEffect(() => {
+    if (subId !== '') {
+      obtenerUnDocumento(subId)
+    }
+  }, [subId]);
+
+
 
   const filtro = () => {
     console.log('click filtro');
@@ -85,13 +106,13 @@ function Muro() {
         </div>
         <div id="contenedorNotas">
           <div id="cuerpoNotas">
-            {notas.map((nota) =>(
+            {notas.map((nota) => (
               <div key={nota.id}>
                 <div id="datosNota">
                   <p id="tituloNota">{nota.titulo}</p>
                   <p id="textoNota">{nota.publicacion}</p>
-                  <button id="borrar-editar">Borrar</button>
-                  <button id="borrar-editar">Editar</button>
+                  <button id="borrar-editar" onClick={() => borrarPublicación(nota.id)}>Borrar</button>
+                  <button id="borrar-editar" onClick={() => setsubId(nota.id)}>Editar</button>
                 </div>
 
               </div>

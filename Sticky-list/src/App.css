@@ -70,7 +70,8 @@ h2 {
     cursor: pointer;
     font-weight: 550;
 }
-#cuerpoNotas{
+
+#cuerpoNotas {
     height: 550px;
 }
 
@@ -105,16 +106,16 @@ h2 {
     font-weight: 550;
 }
 
-#publicarpost{
+#publicarpost {
     background-color: rgba(34, 46, 94, 1);
     Width: 100px;
     Height: 40px;
     border-radius: 20px;
-    margin: 12px;
     font-size: 15px;
     color: white;
 }
-#borrar-editar{
+
+#borrar-editar {
     background-color: rgba(34, 46, 94, 1);
     Width: 60px;
     Height: 20px;
@@ -123,22 +124,23 @@ h2 {
     font-size: 15px;
     color: white;
 }
+
 #nuevoSticky {
     margin-top: 30px;
     margin-bottom: 15px;
 }
-#contenedorNotas{
+
+#contenedorNotas {
     display: flex;
     justify-content: space-around;
     padding: 20px;
-
 }
 
 #cerrarSesion {
     margin-top: 35px;
 }
 
-#inputsticky{
+#inputsticky {
     width: 190px;
     height: 100px;
     background-color: rgba(6, 188, 194, 1);
@@ -149,12 +151,14 @@ h2 {
     text-align: center;
     font-size: 20px;
 }
-#datosNota{
+
+#datosNota {
     background-color: rgba(6, 188, 194, 1);
     padding: 10px 10px 0px 10px;
     margin: 15px;
 }
-#textoNota{
+
+#textoNota {
     width: 190px;
     background-color: rgba(6, 188, 194, 1);
     border: none;
@@ -162,6 +166,7 @@ h2 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
 }
+
 #tituloNota {
     width: 190px;
     background-color: rgba(6, 188, 194, 1);
@@ -170,8 +175,8 @@ h2 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     margin: 0;
-
 }
+
 ::placeholder {
     color: white;
     font-weight: bolder;
@@ -263,14 +268,14 @@ header {
         margin-top: 5px;
     }
     #cerrarSesion,
-#nuevoSticky {
-    background-color: rgba(34, 46, 94, 1);
-    Width: 200px;
-    Height: 40px;
-    border-radius: 25px;
-    margin: 10px;
-    font-size: 22px;
-    color: white;
-    font-weight: 550;
-}
+    #nuevoSticky {
+        background-color: rgba(34, 46, 94, 1);
+        Width: 200px;
+        Height: 40px;
+        border-radius: 25px;
+        margin: 10px;
+        font-size: 22px;
+        color: white;
+        font-weight: 550;
+    }
 }
