@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { salirDeCuenta, crearDocumento, lectorDatos, borrarPublicación, docSnap }
+import { salirDeCuenta, crearDocumento, lectorDatos, borrarPublicación }
   from '../../Firebase/Dependencias';
 
 function Muro() {
