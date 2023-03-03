@@ -13,7 +13,8 @@ import {
     addDoc,
     getDocs,
     deleteDoc,
-    getDoc
+    getDoc,
+    onSnapshot
 } from 'firebase/firestore';
 
 
@@ -41,14 +42,16 @@ export const salirDeCuenta = async() => {
     await signOut(auth);
 };
 
-export const lectorDatos = async() => {
-    const querySnapshot = await getDocs(collection(db, 'stickypost'));
-    const documentoRenderizar = [];
-    querySnapshot.forEach((doc) => {
-        documentoRenderizar.push({...doc.data(), id: doc.id });
-        // doc.data() is never undefined for query doc snapshots
+export const lectorDatos = async(callback) => {
+    onSnapshot(collection(db, 'stickypost'), (querySnapshot) => {
+        const documentoRenderizar = [];
+        querySnapshot.forEach((doc) => {
+            documentoRenderizar.push({...doc.data(), id: doc.id });
+            // doc.data() is never undefined for query doc snapshots
+        });
+        callback(documentoRenderizar)
     });
-    return documentoRenderizar
+
 };
 
 export const crearDocumento = (objetoInput) => {

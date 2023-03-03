@@ -29,7 +29,8 @@ function Muro() {
     /* limpiar input */
     document.getElementById('contenedorSticky').style.display = 'none';
 
-    setvalorPublicacion({ ...inputInicial });
+    setvalorPublicacion(inputInicial);
+    console.log(inputInicial, 'prueba')
     crearDocumento(valorPublicacion)
       .then((funciona) => {
         console.log(funciona);
@@ -38,7 +39,7 @@ function Muro() {
   };
   /* fx para renderizar los nuevos stickys */
   useEffect(() => {
-    lectorDatos().then((result) => {
+    lectorDatos((result) => {
       console.log(result);
       setNotas(result);
     },
@@ -93,10 +94,10 @@ function Muro() {
         </aside>
         <div id='contenedorSticky'>
           <div id='sticky'>
-            <input name='titulo' type="text" id='titulosticky'
+            <input name='titulo' value={valorPublicacion.titulo} type="text" id='titulosticky'
               onChange={controladorInput}
               placeholder='Título de tu sticky' />
-            <textarea name='publicacion' id='inputsticky'
+            <textarea name='publicacion' id='inputsticky' value={valorPublicacion.publicacion}
               placeholder='¿Qué quieres recordar?'
               onChange={controladorInput} />
             <button onClick={clickInputPublicacion}
