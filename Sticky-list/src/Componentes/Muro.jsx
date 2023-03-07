@@ -1,7 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import {useNavigate} from 'react-router-dom';
-import {salirDeCuenta, crearDocumento, lectorDatos,
-  borrarPublicación, obtenerUnDocumento}
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import {
+  salirDeCuenta, crearDocumento, lectorDatos,
+  borrarPublicación, obtenerUnDocumento
+}
   from '../../Firebase/Dependencias';
 
 function Muro() {
@@ -17,8 +19,8 @@ function Muro() {
   const [subId, setsubId] = useState('');
 
   const controladorInput = (e) => {
-    const {name, value} = e.target;
-    setvalorPublicacion({...valorPublicacion, [name]: value});
+    const { name, value } = e.target;
+    setvalorPublicacion({ ...valorPublicacion, [name]: value });
   };
 
   const nuevoSticky = () => {
@@ -33,9 +35,9 @@ function Muro() {
     setvalorPublicacion(inputInicial);
     console.log(inputInicial, 'prueba');
     crearDocumento(valorPublicacion)
-        .then((funciona) => {
-          console.log(funciona);
-        });
+      .then((funciona) => {
+        console.log(funciona);
+      });
     console.log(valorPublicacion);
   };
   /* fx para renderizar los nuevos stickys */
@@ -48,20 +50,22 @@ function Muro() {
   }, []);
 
 
-  const editarDoc = async (id) => {
-    try {
-      //     obtenerUnDocumento()
-      //  setvalorPublicacion(ob.data())
-      // setvalorPublicacion(obtenerUnDocumento.data)
-      console.log(subId, 'soy sub id');
-    } catch (error) {
-      console.log(error);
-    }
+  const getOne = (id) => {
+    obtenerUnDocumento(id).then((post) => {
+      document.getElementById('contenedorSticky').style.display = 'block';
+      console.log(post, 'console de post')
+     setvalorPublicacion(post.data())
+    }).catch((error) => {
+      console.log(error)
+    });
   };
+
   // fx para editar documentos
+  // Le pregunta si el subId es diferente de vacío, si tiene información retorna al input
+  // Se va a renderizar sólo cuando tenga información
   useEffect(() => {
     if (subId !== '') {
-      obtenerUnDocumento(subId);
+      getOne(subId);
     }
   }, [subId]);
 

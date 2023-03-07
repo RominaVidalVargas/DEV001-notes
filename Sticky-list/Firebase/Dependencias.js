@@ -46,7 +46,8 @@ export const lectorDatos = async(callback) => {
     onSnapshot(collection(db, 'stickypost'), (querySnapshot) => {
         const documentoRenderizar = [];
         querySnapshot.forEach((doc) => {
-            documentoRenderizar.push({...doc.data(), id: doc.id });
+            documentoRenderizar.push({...doc.data(), id: doc.id, });
+            //AQUÍ SE PODRÍA SACAR USER Y FECHA
             // doc.data() is never undefined for query doc snapshots
         });
         callback(documentoRenderizar)
@@ -58,11 +59,11 @@ export const crearDocumento = (objetoInput) => {
 };
 
 export const obtenerUnDocumento = (id) => {
-    getDoc(doc(db, 'stickypost', id));
+    return getDoc(doc(db, 'stickypost', id));
 };
 
 
 
-export const borrarPublicación = async(id) => {
-    await deleteDoc(doc(db, 'stickypost', id))
+export const borrarPublicación = (id) => {
+    return deleteDoc(doc(db, 'stickypost', id));
 };
