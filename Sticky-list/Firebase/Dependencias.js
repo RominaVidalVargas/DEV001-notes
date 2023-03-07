@@ -51,11 +51,14 @@ export const lectorDatos = async(callback) => {
         });
         callback(documentoRenderizar)
     });
-
 };
 
 export const crearDocumento = (objetoInput) => {
     return addDoc(collection(db, 'stickypost'), objetoInput);
+};
+
+export const obtenerUnDocumento = (id) => {
+    getDoc(doc(db, 'stickypost', id));
 };
 
 

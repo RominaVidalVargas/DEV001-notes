@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { salirDeCuenta, crearDocumento, lectorDatos, borrarPublicación }
+import { salirDeCuenta, crearDocumento, lectorDatos, borrarPublicación, obtenerUnDocumento}
   from '../../Firebase/Dependencias';
 
 function Muro() {
@@ -47,9 +47,12 @@ function Muro() {
   }, []);
 
 
-  const obtenerUnDocumento = async (id) => {
+  const editarDoc = async (id) => {
     try {
-      setvalorPublicacion(docSnap.data())
+  //     obtenerUnDocumento()
+  //  setvalorPublicacion(ob.data())
+      // setvalorPublicacion(obtenerUnDocumento.data)
+      console.log(subId, 'soy sub id')
     } catch (error) {
       console.log(error)
     }
