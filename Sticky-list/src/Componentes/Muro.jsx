@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { salirDeCuenta, crearDocumento, lectorDatos, borrarPublicación, obtenerUnDocumento}
+import React, {useEffect, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+import {salirDeCuenta, crearDocumento, lectorDatos,
+  borrarPublicación, obtenerUnDocumento}
   from '../../Firebase/Dependencias';
 
 function Muro() {
@@ -16,8 +17,8 @@ function Muro() {
   const [subId, setsubId] = useState('');
 
   const controladorInput = (e) => {
-    const { name, value } = e.target;
-    setvalorPublicacion({ ...valorPublicacion, [name]: value });
+    const {name, value} = e.target;
+    setvalorPublicacion({...valorPublicacion, [name]: value});
   };
 
   const nuevoSticky = () => {
@@ -30,11 +31,11 @@ function Muro() {
     document.getElementById('contenedorSticky').style.display = 'none';
 
     setvalorPublicacion(inputInicial);
-    console.log(inputInicial, 'prueba')
+    console.log(inputInicial, 'prueba');
     crearDocumento(valorPublicacion)
-      .then((funciona) => {
-        console.log(funciona);
-      });
+        .then((funciona) => {
+          console.log(funciona);
+        });
     console.log(valorPublicacion);
   };
   /* fx para renderizar los nuevos stickys */
@@ -49,21 +50,20 @@ function Muro() {
 
   const editarDoc = async (id) => {
     try {
-  //     obtenerUnDocumento()
-  //  setvalorPublicacion(ob.data())
+      //     obtenerUnDocumento()
+      //  setvalorPublicacion(ob.data())
       // setvalorPublicacion(obtenerUnDocumento.data)
-      console.log(subId, 'soy sub id')
+      console.log(subId, 'soy sub id');
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
-  //fx para editar documentos
+  };
+  // fx para editar documentos
   useEffect(() => {
     if (subId !== '') {
-      obtenerUnDocumento(subId)
+      obtenerUnDocumento(subId);
     }
   }, [subId]);
-
 
 
   const filtro = () => {
@@ -97,10 +97,12 @@ function Muro() {
         </aside>
         <div id='contenedorSticky'>
           <div id='sticky'>
-            <input name='titulo' value={valorPublicacion.titulo} type="text" id='titulosticky'
+            <input name='titulo' value={valorPublicacion.titulo}
+              type="text" id='titulosticky'
               onChange={controladorInput}
               placeholder='Título de tu sticky' />
-            <textarea name='publicacion' id='inputsticky' value={valorPublicacion.publicacion}
+            <textarea name='publicacion' id='inputsticky'
+              value={valorPublicacion.publicacion}
               placeholder='¿Qué quieres recordar?'
               onChange={controladorInput} />
             <button onClick={clickInputPublicacion}
@@ -115,8 +117,10 @@ function Muro() {
                 <div id="datosNota">
                   <p id="tituloNota">{nota.titulo}</p>
                   <p id="textoNota">{nota.publicacion}</p>
-                  <button id="borrar-editar" onClick={() => borrarPublicación(nota.id)}>Borrar</button>
-                  <button id="borrar-editar" onClick={() => setsubId(nota.id)}>Editar</button>
+                  <button id="borrar-editar"
+                    onClick={() => borrarPublicación(nota.id)}>Borrar</button>
+                  <button id="borrar-editar"
+                    onClick={() => setsubId(nota.id)}>Editar</button>
                 </div>
 
               </div>
