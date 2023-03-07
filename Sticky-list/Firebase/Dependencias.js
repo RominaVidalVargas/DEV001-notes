@@ -44,6 +44,7 @@ export const salirDeCuenta = async() => {
 
 export const lectorDatos = async(callback) => {
     onSnapshot(collection(db, 'stickypost'), (querySnapshot) => {
+        console.log(querySnapshot, 'console del query')
         const documentoRenderizar = [];
         querySnapshot.forEach((doc) => {
             documentoRenderizar.push({...doc.data(), id: doc.id, });
