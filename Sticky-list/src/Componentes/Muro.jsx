@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   salirDeCuenta, crearDocumento, lectorDatos,
-  borrarPublicación, obtenerUnDocumento
+  borrarPublicación, obtenerUnDocumento, actualizarDatos
 }
   from '../../Firebase/Dependencias';
 
@@ -17,9 +17,10 @@ function Muro() {
   const [valorPublicacion, setvalorPublicacion] = useState(inputInicial);
   const [notas, setNotas] = useState([]);
   const [subId, setsubId] = useState('');
-
+  // console.log(valorPublicacion, 'comprobar de actualizacion')
   const controladorInput = (e) => {
     const { name, value } = e.target;
+    // console.log(name, value, 'comprobar name y value')
     setvalorPublicacion({ ...valorPublicacion, [name]: value });
   };
 
@@ -27,23 +28,36 @@ function Muro() {
     document.getElementById('contenedorSticky').style.display = 'block';
   };
 
-  const clickInputPublicacion = (e) => {
+  const clickInputPublicacion = async (e) => {
     e.preventDefault();
     /* limpiar input */
     document.getElementById('contenedorSticky').style.display = 'none';
 
-    setvalorPublicacion(inputInicial);
-    console.log(inputInicial, 'prueba');
-    crearDocumento(valorPublicacion)
-      .then((funciona) => {
-        console.log(funciona);
-      });
-    console.log(valorPublicacion);
+    if (subId === '') {
+      try {
+        await crearDocumento(valorPublicacion), {
+          ...valorPublicacion
+            .then((funciona) => {
+              console.log(funciona);
+            }
+            )
+        };
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    else {
+      actualizarDatos(subId, valorPublicacion)
+ 
+    }
+    setvalorPublicacion({ ...inputInicial })
+    setsubId('')
   };
+
   /* fx para renderizar los nuevos stickys */
   useEffect(() => {
     lectorDatos((result) => {
-      console.log(result);
+      // console.log(result);
       setNotas(result);
     },
     );
@@ -53,8 +67,8 @@ function Muro() {
   const getOne = (id) => {
     obtenerUnDocumento(id).then((post) => {
       document.getElementById('contenedorSticky').style.display = 'block';
-      console.log(post, 'console de post')
-     setvalorPublicacion(post.data())
+      // console.log(post, 'console de post')
+      setvalorPublicacion(post.data())
     }).catch((error) => {
       console.log(error)
     });
@@ -110,7 +124,7 @@ function Muro() {
               placeholder='¿Qué quieres recordar?'
               onChange={controladorInput} />
             <button onClick={clickInputPublicacion}
-              id='publicarpost'>Publicar</button>
+              id='publicarpost'>{subId === '' ? 'Publicar' : 'Guardar cambios'}</button>
           </div>
 
         </div>

@@ -14,7 +14,8 @@ import {
     getDocs,
     deleteDoc,
     getDoc,
-    onSnapshot
+    onSnapshot,
+    setDoc
 } from 'firebase/firestore';
 
 
@@ -68,3 +69,7 @@ export const obtenerUnDocumento = (id) => {
 export const borrarPublicación = (id) => {
     return deleteDoc(doc(db, 'stickypost', id));
 };
+
+export const actualizarDatos = async(id, postEditar) => {
+    await setDoc(doc(db, 'stickypost', id), postEditar)
+}
